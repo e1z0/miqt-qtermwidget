@@ -1,0 +1,11 @@
+prefix=/usr/local
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include/qtermwidget5 
+
+Name: qtermwidget5
+Description: A terminal emulator widget for Qt
+Version: 1.4.0
+Requires: Qt5Widgets libutf8proc
+Libs: -L${libdir} -lqtermwidget5
+Cflags: -I${includedir}/qtermwidget5
