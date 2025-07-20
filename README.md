@@ -47,3 +47,15 @@ CGO_CXXFLAGS="-I$(brew --prefix qt@5)/include -I/usr/local/include -I/usr/local/
 CGO_LDFLAGS="-L$(brew --prefix qt@5)/lib" \
 go build -ldflags '-v -s -w' -o main main.go
 ```
+
+# MacOS app bundle
+
+```
+rm -rf release/miqt-term.app
+cp -r skeleton release/miqt-term.app
+cp main release/miqt-term.app/Contents/MacOS/main
+chmod +x release/miqt-term.app/Contents/MacOS/main
+macdeployqt release/miqt-term.app -verbose=1 -always-overwrite -executable=release/miqt-term.app/Contents/MacOS/main
+codesign --force --deep --sign - release/miqt-term.app
+touch release/miqt-term.app
+```
