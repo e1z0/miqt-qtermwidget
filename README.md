@@ -27,7 +27,7 @@ cmake .. -GNinja \
   -DCMAKE_PREFIX_PATH="$(brew --prefix qt@5)" \
   -DUSE_QT5=true
 ninja
-ninja install # ninja uninstall
+sudo ninja install # ninja uninstall
 cd ..
 cd utf8proc-2.10.0
 mkdir build && cd build && cmake ..
